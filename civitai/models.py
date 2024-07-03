@@ -25,13 +25,13 @@ AESTHETIC_GRADIENT = db["aesthetic_gradient"]
 CONTROLNET = db["controlnet"]
 POSES = db["poses"]
 
-lora_ids = set([item["id"] for item in LORA.find({})])
-checkpoint_ids = set([item["id"] for item in CHECKPOINT.find({})])
-textual_inversion_ids = set([item["id"] for item in TEXTUAL_INVERSION.find({})])
-hypernetwork_ids = set([item["id"] for item in HYPERNETWORK.find({})])
-aesthetic_gradient_ids = set([item["id"] for item in AESTHETIC_GRADIENT.find({})])
-controlnet_ids = set([item["id"] for item in CONTROLNET.find({})])
-poses_ids = set([item["id"] for item in POSES.find({})])
+lora_ids = set(LORA.distinct('id'))
+checkpoint_ids = set(CHECKPOINT.distinct("id"))
+textual_inversion_ids = set(TEXTUAL_INVERSION.distinct("id"))
+hypernetwork_ids = set(HYPERNETWORK.distinct("id"))
+aesthetic_gradient_ids = set(AESTHETIC_GRADIENT.distinct("id"))
+controlnet_ids = set(CONTROLNET.distinct("id"))
+poses_ids = set(POSES.distinct("id"))
 
 pbar = tqdm.tqdm()
 

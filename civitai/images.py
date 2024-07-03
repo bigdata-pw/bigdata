@@ -19,7 +19,7 @@ URL = "https://civitai.com/api/v1/images?limit={limit}&period={period}&sort={sor
 db = client.civitai
 IMAGES = db["images"]
 
-image_ids = set([item["id"] for item in IMAGES.find({})])
+image_ids = set(IMAGES.distinct("id"))
 
 pbar = tqdm.tqdm()
 
