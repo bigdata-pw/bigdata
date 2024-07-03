@@ -52,6 +52,14 @@ def get_images(
     for item in items:
         if item["id"] in ids_set:
             continue
+        # Convert seed to str to avoid overflow
+        meta = item.get('meta', {})
+        seed = None
+        if meta:
+            seed = meta.get('seed', None)
+        if seed:
+            item['meta']['seed'] = str(seed)
+
         ids_set.add(item["id"])
         bulk_writes.append(InsertOne(item))
 
