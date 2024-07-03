@@ -1,3 +1,8 @@
+import sys
+
+sys.setrecursionlimit(10000)
+
+
 import curl_cffi.requests as curl_requests
 from pymongo import InsertOne
 from pymongo.mongo_client import MongoClient
@@ -53,12 +58,12 @@ def get_images(
         if item["id"] in ids_set:
             continue
         # Convert seed to str to avoid overflow
-        meta = item.get('meta', {})
+        meta = item.get("meta", {})
         seed = None
         if meta:
-            seed = meta.get('seed', None)
+            seed = meta.get("seed", None)
         if seed:
-            item['meta']['seed'] = str(seed)
+            item["meta"]["seed"] = str(seed)
 
         ids_set.add(item["id"])
         bulk_writes.append(InsertOne(item))
