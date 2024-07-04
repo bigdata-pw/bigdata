@@ -6,4 +6,4 @@
     |____/|_| \____|  |____/ /_/   \_\  |_|  /_/   \_\
 ```
 
-BIG data - collection of scraping scripts
+BIG data - collection of scraping scripts and utilities
