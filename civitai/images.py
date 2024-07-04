@@ -62,6 +62,8 @@ def get_images(
         seed = None
         if meta:
             seed = meta.get("seed", None)
+            # remove comfy metadata, we get it from .png anyway
+            _ = meta.pop("comfy", None)
         if seed:
             item["meta"]["seed"] = str(seed)
 
